@@ -1,25 +1,27 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Header from "./components/Header";
 import Quiz from "./components/Quiz";
 import Home from "./components/Home";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
+    <div className="App">
+      <Header />
+      <Router>
         <Switch>
-          <Route path="/quiz">
-            <Quiz />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/" exact component={Home} />
+          <Route path="/quiz" component={Quiz} />
+          <Redirect to="/" />
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
