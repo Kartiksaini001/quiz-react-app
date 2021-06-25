@@ -41,6 +41,7 @@ function Quiz(props) {
     for (let i = 0; i < problems.length; i++) {
       if (problems[i].correct === selected[i]) score += 10;
     }
+    setCurrent(0);
     alert("Congrats! Your score is " + score + " out of 50");
   };
 
